@@ -16,7 +16,7 @@ Additionally, you can switch user to Juliet
 ## Running through postman
 For this to work only step 5 above is required.
 
-Import the postman collection: `microservice-demo/microservice-demo.postman_collection.json` [https://learning.postman.com/docs/getting-started/importing-and-exporting-data/#importing-data-into-postman](How to).
+Import the postman collection: `microservice-demo/microservice-demo.postman_collection.json` [How to](https://learning.postman.com/docs/getting-started/importing-and-exporting-data/#importing-data-into-postman).
 
 Within this lies three folders:
 
