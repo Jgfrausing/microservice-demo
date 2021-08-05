@@ -8,14 +8,14 @@ A small demo of communication between two microservices.
 3. Run `npm run build` (one time for each folder only)
 4. Run `npm run start`
 5. Open a terminal and cd to `microservice-demo/business-logic` and repeat step 2, 3, and 4.
-6. Go to http://localhost:3000/
+6. Go to [localhost](http://localhost:3000/)
 
 From here you can increment, decrement, and view the funds of the current user (default Romeo)
 Additionally, you can switch user to Juliet
 
 ## Running through postman
 For this to work only step 5. above is required.
-Install the postman collection from `microservice-demo/post`.
+Import the postman collection: `microservice-demo/microservice-demo.postman_collection.json` [https://learning.postman.com/docs/getting-started/importing-and-exporting-data/#importing-data-into-postman](How to).
 Within this lies three folders:
 
 ### Romeo

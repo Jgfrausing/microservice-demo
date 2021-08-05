@@ -1,0 +1,439 @@
+{
+	"info": {
+		"_postman_id": "53202bce-b59d-4e82-b6c2-0897f0ebef44",
+		"name": "microservice-demo",
+		"schema": "https://schema.getpostman.com/json/collection/v2.1.0/collection.json"
+	},
+	"item": [
+		{
+			"name": "Romeo",
+			"item": [
+				{
+					"name": "Available funds",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/api/getAvailableFunds?username=Romeo",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"getAvailableFunds"
+							],
+							"query": [
+								{
+									"key": "username",
+									"value": "Romeo"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Available funds Juliet (Blocked)",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/api/getAvailableFunds?username=Juliet",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"getAvailableFunds"
+							],
+							"query": [
+								{
+									"key": "username",
+									"value": "Juliet"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Increment",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/api/incrementFunds?username=Romeo",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"incrementFunds"
+							],
+							"query": [
+								{
+									"key": "username",
+									"value": "Romeo"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Increment Juliet",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/api/incrementFunds?username=Juliet",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"incrementFunds"
+							],
+							"query": [
+								{
+									"key": "username",
+									"value": "Juliet"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Decrement",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/api/decrementFunds?username=Romeo",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"decrementFunds"
+							],
+							"query": [
+								{
+									"key": "username",
+									"value": "Romeo"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Decrement Juliet (Blocked)",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/api/decrementFunds?username=Juliet",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"decrementFunds"
+							],
+							"query": [
+								{
+									"key": "username",
+									"value": "Juliet"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"auth": {
+				"type": "basic",
+				"basic": [
+					{
+						"key": "password",
+						"value": "Password",
+						"type": "string"
+					},
+					{
+						"key": "username",
+						"value": "User1",
+						"type": "string"
+					}
+				]
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "Juliet",
+			"item": [
+				{
+					"name": "Available funds",
+					"request": {
+						"method": "GET",
+						"header": [
+							{
+								"key": "username",
+								"value": "Romeo",
+								"type": "text"
+							}
+						],
+						"url": {
+							"raw": "http://localhost:3000/api/getAvailableFunds?username=Juliet",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"getAvailableFunds"
+							],
+							"query": [
+								{
+									"key": "username",
+									"value": "Juliet"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Increment",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/api/incrementFunds?username=Juliet",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"incrementFunds"
+							],
+							"query": [
+								{
+									"key": "username",
+									"value": "Juliet"
+								}
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Decrement",
+					"request": {
+						"method": "GET",
+						"header": [],
+						"url": {
+							"raw": "http://localhost:3000/api/decrementFunds?username=Juliet",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3000",
+							"path": [
+								"api",
+								"decrementFunds"
+							],
+							"query": [
+								{
+									"key": "username",
+									"value": "Juliet"
+								}
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"auth": {
+				"type": "basic",
+				"basic": [
+					{
+						"key": "username",
+						"value": "OtherUser",
+						"type": "string"
+					},
+					{
+						"key": "password",
+						"value": "Password",
+						"type": "string"
+					}
+				]
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		},
+		{
+			"name": "Business Logic",
+			"item": [
+				{
+					"name": "Available funds",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "username",
+								"value": "Romeo",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"username\": \"Juliet\",\r\n  \"auth\": \"T3RoZXJVc2VyOlBhc3N3b3Jk\",\r\n  \"token\": \"SafeBankingIsGoodBanking\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3005/api/getAvailableFunds",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3005",
+							"path": [
+								"api",
+								"getAvailableFunds"
+							]
+						}
+					},
+					"response": []
+				},
+				{
+					"name": "Available funds (Blocked)",
+					"request": {
+						"method": "POST",
+						"header": [
+							{
+								"key": "username",
+								"value": "Romeo",
+								"type": "text"
+							}
+						],
+						"body": {
+							"mode": "raw",
+							"raw": "{\r\n  \"username\": \"Juliet\",\r\n  \"auth\": \"T3RoZXJVc2VyOlBhc3N3b3Jk\",\r\n  \"token\": \"WillNotWorkNow\"\r\n}",
+							"options": {
+								"raw": {
+									"language": "json"
+								}
+							}
+						},
+						"url": {
+							"raw": "http://localhost:3005/api/getAvailableFunds",
+							"protocol": "http",
+							"host": [
+								"localhost"
+							],
+							"port": "3005",
+							"path": [
+								"api",
+								"getAvailableFunds"
+							]
+						}
+					},
+					"response": []
+				}
+			],
+			"auth": {
+				"type": "basic",
+				"basic": [
+					{
+						"key": "username",
+						"value": "OtherUser",
+						"type": "string"
+					},
+					{
+						"key": "password",
+						"value": "Password",
+						"type": "string"
+					}
+				]
+			},
+			"event": [
+				{
+					"listen": "prerequest",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				},
+				{
+					"listen": "test",
+					"script": {
+						"type": "text/javascript",
+						"exec": [
+							""
+						]
+					}
+				}
+			]
+		}
+	]
+}
