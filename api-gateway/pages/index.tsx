@@ -14,6 +14,13 @@ const Home = () => {
         index: 0,
         user: USERS[0],
     });
+    const [alert, _setAlert] = useState('');
+    const setAlert = (val: string) => {
+        setEventNo(eventNo+1);
+        _setAlert(val);
+    };
+
+    const [eventNo, setEventNo] = useState(0); 
     const user = () => selectedUser.user;
     const getHeader = () => ({
         headers: { authorization: `Basic ${user().auth}` },
@@ -22,9 +29,9 @@ const Home = () => {
     const notify = async (res: Response) => {
         if (res.ok) {
             const data = await res.json();
-            alert(JSON.stringify(data));
+            setAlert(JSON.stringify(data));
         } else {
-            alert(res.statusText);
+            setAlert(res.statusText);
         }
     };
 
@@ -41,6 +48,7 @@ const Home = () => {
             `/api/incrementFunds?username=${user().name}`,
             getHeader()
         );
+        notify(res);
     };
 
     const decrementFunds = async () => {
@@ -48,11 +56,13 @@ const Home = () => {
             `/api/decrementFunds?username=${user().name}`,
             getHeader()
         );
+        notify(res);
     };
 
     const switchUser = () => {
         const index = selectedUser.index === 0 ? 1 : 0;
         setSelectedUser({ index, user: USERS[index] });
+        setAlert('Switched user');
     };
 
     return (
@@ -61,7 +71,7 @@ const Home = () => {
                 <title>Mircoservice demo</title>
                 <link rel="icon" href="/favicon.ico" />
             </Head>
-
+            <p style={{position: 'absolute', top: 10}}>{alert ? `${eventNo}: ${alert}` : ' '}</p>
             <main className={styles.main}>
                 <h1 className={styles.title}>Mircoservice demo</h1>
                 <p>Logged in as {user().name}</p>
@@ -83,6 +93,7 @@ const Home = () => {
                         <h2>Switch user &#x21c4;</h2>
                     </div>
                 </div>
+                
             </main>
         </div>
     );

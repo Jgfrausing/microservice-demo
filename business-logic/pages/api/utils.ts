@@ -1,4 +1,4 @@
-import { NextApiRequest, NextApiResponse } from "next";
+import { NextApiResponse } from "next";
 import { displayFunds, setUsingUsername, User } from "../../mock/funds-db";
 
 export const verify = (body: any, res: NextApiResponse) => {
@@ -18,7 +18,7 @@ export const addFunds = (user: User | undefined, value: number, auth: string | u
         res.statusMessage = "Users can only remove their own funds";
     } else if (user) {
         setUsingUsername(user.username, {...user, funds: user.funds+value})
-        res.status(200);
+        res.status(200).json({fundsChanged: value});
     } else {
         res.status(404);
         res.statusMessage = "Unable to find user";

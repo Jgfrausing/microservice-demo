@@ -12,12 +12,11 @@ export const pipeRequest = async (
     res: NextApiResponse,
     auth: string | undefined,
     fetchFn: (token: string) => Promise<Response>,
-    withResponse = true,
 ) => {
     if (auth) {
         const request = await fetchFn(TOKEN);
         res.status(request.status);
-        if (request.ok && withResponse) {
+        if (request.ok) {
             const awaited = await request.json();
             res.json(awaited);
         } else if (!request.ok) {

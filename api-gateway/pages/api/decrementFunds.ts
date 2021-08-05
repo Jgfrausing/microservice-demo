@@ -10,7 +10,7 @@ const decrementFunds = async (
     await pipeRequest(res, auth, (token: string) => {
         const body = JSON.stringify({username: req.query.username, auth, token});
         return fetch('http://localhost:3005/api/decrementFunds', { method: 'POST', body, headers: HEADERS })
-    }, false);
+    });
 };
 
 export default decrementFunds;
